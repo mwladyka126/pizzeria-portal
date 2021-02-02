@@ -13,11 +13,12 @@
 # widok dostepnosci stolikow
 
 - `/tables`
+  -dostępność wszystich stolików
   -wybór daty i godziny
   -tabela z listą rezerwacji oraz wydarzeń
   -każda kolumna =1 stolik
   -każdy wiersz = 30 minut
-  -ma przypominać widok tgdnia w kalendarzu Google, gdzie w kolumnach zaiast dni są różne stoliki
+  -ma przypominać widok tygdnia w kalendarzu Google, gdzie w kolumnach zaiast dni są różne stoliki
   -po kliknieciu rezerwacji lub eventu, przechodzimy na stronę szczegółów
 - `/tables/booking/:id`
   -zamiera wszystkie informacje dotyczące rezerwacji

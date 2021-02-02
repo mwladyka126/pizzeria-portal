@@ -15,6 +15,7 @@ const PageNav = () => (
       Dashboard
     </Button>
     <Button
+      className={styles.link}
       component={NavLink}
       to={`${process.env.PUBLIC_URL}/login`}
       activeClassName="active"
@@ -22,6 +23,7 @@ const PageNav = () => (
       Login
     </Button>
     <Button
+      className={styles.link}
       component={NavLink}
       to={`${process.env.PUBLIC_URL}/tables`}
       activeClassName="active"
@@ -29,6 +31,7 @@ const PageNav = () => (
       Tables
     </Button>
     <Button
+      className={styles.link}
       component={NavLink}
       to={`${process.env.PUBLIC_URL}/waiter`}
       activeClassName="active"
@@ -36,6 +39,7 @@ const PageNav = () => (
       Waiter
     </Button>
     <Button
+      className={styles.link}
       component={NavLink}
       to={`${process.env.PUBLIC_URL}/kitchen`}
       activeClassName="active"
