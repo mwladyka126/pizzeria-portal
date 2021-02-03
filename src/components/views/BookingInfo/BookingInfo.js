@@ -1,15 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './BookingInfo.module.scss';
+import { useParams } from 'react-router-dom';
 
-const BookingInfo = ({ id }) => (
-  <div className={styles.component}>
-    <h2>BookingInfo view</h2>
-    {id}
-  </div>
-);
-BookingInfo.propTypes = {
-  id: PropTypes.string,
+const BookingInfo = () => {
+  const { id } = useParams();
+  return (
+    <div className={styles.component}>
+      <h2>BookingInfo view</h2>
+      {id}
+    </div>
+  );
 };
 
 export default BookingInfo;

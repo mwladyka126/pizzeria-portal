@@ -1,15 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './EventsInfo.module.scss';
+import { useParams } from 'react-router-dom';
 
-const EventsInfo = ({ id }) => (
-  <div className={styles.component}>
-    <h2>EventsInfo view</h2>
-    {id}
-  </div>
-);
-EventsInfo.propTypes = {
-  id: PropTypes.string,
+const EventsInfo = () => {
+  const { id } = useParams();
+  return (
+    <div className={styles.component}>
+      <h2>EventsInfo view</h2>
+      {id}
+    </div>
+  );
 };
 
 export default EventsInfo;

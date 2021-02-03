@@ -47,23 +47,23 @@ function App() {
               />
               <Route
                 exact
-                path={process.env.PUBLIC_URL + '/tables/booking/:id'}
-                component={BookingInfo}
-              />
-              <Route
-                exact
                 path={process.env.PUBLIC_URL + '/tables/booking/new'}
                 component={NewBooking}
               />
               <Route
                 exact
-                path={process.env.PUBLIC_URL + '/tables/events/:id'}
-                component={EventsInfo}
+                path={process.env.PUBLIC_URL + '/tables/booking/:id'}
+                component={BookingInfo}
               />
               <Route
                 exact
                 path={process.env.PUBLIC_URL + '/tables/events/new'}
                 component={NewEvent}
+              />
+              <Route
+                exact
+                path={process.env.PUBLIC_URL + '/tables/events/:id'}
+                component={EventsInfo}
               />
               <Route
                 exact
