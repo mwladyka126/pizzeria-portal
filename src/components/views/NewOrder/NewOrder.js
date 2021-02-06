@@ -22,14 +22,15 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const demoMenu = [
-  { id: '1', name: 'cake', option: null },
-  { id: '2', name: 'breakfeast', option: null },
-  { id: '3', name: 'pizza', option: 123 },
-  { id: '4', name: 'salad', option: 234 },
+  { id: '1', name: 'cake', option: ['vegan', 'chocolate', 'no sugar'] },
+  { id: '2', name: 'breakfeast', option: ['latte', 'cappuccino', 'espresso'] },
+  { id: '3', name: 'pizza', option: ['feta', 'paprica', 'olives'] },
+  { id: '4', name: 'salad', option: ['tomato', 'cheese', 'oregano'] },
 ];
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
+    padding: '20px',
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -43,7 +44,7 @@ const NewOrder = () => {
     <Paper className={styles.component} elevation={9}>
       <Grid container justify="space-around">
         <Grid item xs={3}>
-          <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter`}>
+          <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/:id`}>
             <RestaurantIcon />
           </Button>
         </Grid>
@@ -54,15 +55,15 @@ const NewOrder = () => {
         </Grid>
       </Grid>
 
-      <Grid container justify="space-around">
+      <Grid container justify="space-between">
         <Grid item xs={6}>
-          <FormControl>
-            <InputLabel
-              id="table"
-              variant="outlined"
-              mediumWidth
-              margin="normal"
-            >
+          <FormControl
+            id="table"
+            variant="outlined"
+            mediumWidth
+            margin="normal"
+          >
+            <InputLabel id="table" variant="outlined" mediumWidth>
               Table
             </InputLabel>
             <Select labelId="table">
@@ -88,244 +89,56 @@ const NewOrder = () => {
           />
         </Grid>
       </Grid>
-
       <Grid className={classes.root}>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography className={classes.heading}>Cake</Typography>
-          </AccordionSummary>
-          <AccordionDetails className={styles.accordionDetails}>
-            <FormControl size="large" margin="normal" component="fieldset">
-              <FormGroup row>
-                <FormControlLabel
-                  control={<Checkbox color="primary" checked name="cake" />}
-                  label="vegan"
-                />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      color="primary"
-                      checked="chocolate"
-                      name="chocolate"
-                    />
-                  }
-                  label="chocolate"
-                />
-              </FormGroup>
-            </FormControl>
-
-            <FormControl
-              size="small"
-              margin="normal"
-              variant="outlined"
-              className={styles.select}
+        {demoMenu.map((dish) => (
+          <Accordion key={dish.id}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
             >
-              <InputLabel id="demo-simple-select-outlined-label">
-                Amount
-              </InputLabel>
-              <Select
-                labelId="amountCake"
-                id="amountCake"
-                label="Amount of cake"
-              >
-                <MenuItem value={1}>1</MenuItem>
-                <MenuItem value={2}>2</MenuItem>
-                <MenuItem value={3}>3</MenuItem>
-                <MenuItem value={4}>4</MenuItem>
-                <MenuItem value={5}>5</MenuItem>
-                <MenuItem value={6}>6</MenuItem>
-                <MenuItem value={7}>7</MenuItem>
-              </Select>
-            </FormControl>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
-          >
-            <Typography className={classes.heading}>Breakfeast</Typography>
-          </AccordionSummary>
-          <AccordionDetails className={styles.accordionDetails}>
-            <FormControl size="large" margin="normal" component="fieldset">
-              <FormGroup row>
-                <FormControlLabel
-                  control={
-                    <Checkbox color="primary" checked="latte" name="latte" />
-                  }
-                  label="latte"
-                />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      color="primary"
-                      checked="cappuccino"
-                      name="cappuccino"
+              <Typography className={classes.heading}>{dish.name}</Typography>
+            </AccordionSummary>
+            <AccordionDetails className={styles.accordionDetails}>
+              <FormControl size="large" margin="normal" component="fieldset">
+                <FormGroup row>
+                  {dish.option.map((opt) => (
+                    <FormControlLabel
+                      key={opt}
+                      control={
+                        <Checkbox color="primary" value name={dish.name} />
+                      }
+                      label={opt}
                     />
-                  }
-                  label="cappuccino"
-                />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      color="primary"
-                      checked="espresso"
-                      name="espresso"
-                    />
-                  }
-                  label="espresso"
-                />
-              </FormGroup>
-            </FormControl>
+                  ))}
+                </FormGroup>
+              </FormControl>
 
-            <FormControl
-              size="small"
-              margin="normal"
-              variant="outlined"
-              className={styles.select}
-            >
-              <InputLabel id="demo-simple-select-outlined-label">
-                Amount
-              </InputLabel>
-              <Select
-                labelId="amountCake"
-                id="amountCake"
-                label="Amount of cake"
+              <FormControl
+                size="small"
+                margin="normal"
+                variant="outlined"
+                className={styles.select}
               >
-                <MenuItem value={1}>1</MenuItem>
-                <MenuItem value={2}>2</MenuItem>
-                <MenuItem value={3}>3</MenuItem>
-                <MenuItem value={4}>4</MenuItem>
-                <MenuItem value={5}>5</MenuItem>
-                <MenuItem value={6}>6</MenuItem>
-                <MenuItem value={7}>7</MenuItem>
-              </Select>
-            </FormControl>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
-          >
-            <Typography className={classes.heading}>Pizza</Typography>
-          </AccordionSummary>
-          <AccordionDetails className={styles.accordionDetails}>
-            <FormControl size="large" margin="normal" component="fieldset">
-              <FormGroup row>
-                <FormControlLabel
-                  control={
-                    <Checkbox color="primary" checked="olives" name="olives" />
-                  }
-                  label="olives"
-                />
-                <FormControlLabel
-                  control={
-                    <Checkbox color="primary" checked="feta" name="feta" />
-                  }
-                  label="feta"
-                />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      color="primary"
-                      checked="paprica"
-                      name="paprica"
-                    />
-                  }
-                  label="paprica"
-                />
-              </FormGroup>
-            </FormControl>
+                <InputLabel id="demo-simple-select-outlined-label">
+                  Amount
+                </InputLabel>
+                <Select>
+                  <MenuItem value={1}>1</MenuItem>
+                  <MenuItem value={2}>2</MenuItem>
+                  <MenuItem value={3}>3</MenuItem>
+                  <MenuItem value={4}>4</MenuItem>
+                  <MenuItem value={5}>5</MenuItem>
+                  <MenuItem value={6}>6</MenuItem>
+                  <MenuItem value={7}>7</MenuItem>
+                </Select>
+              </FormControl>
+            </AccordionDetails>
+          </Accordion>
+        ))}
+      </Grid>
 
-            <FormControl
-              size="small"
-              margin="normal"
-              variant="outlined"
-              className={styles.select}
-            >
-              <InputLabel id="demo-simple-select-outlined-label">
-                Amount
-              </InputLabel>
-              <Select
-                labelId="amountCake"
-                id="amountCake"
-                label="Amount of cake"
-              >
-                <MenuItem value={1}>1</MenuItem>
-                <MenuItem value={2}>2</MenuItem>
-                <MenuItem value={3}>3</MenuItem>
-                <MenuItem value={4}>4</MenuItem>
-                <MenuItem value={5}>5</MenuItem>
-                <MenuItem value={6}>6</MenuItem>
-                <MenuItem value={7}>7</MenuItem>
-              </Select>
-            </FormControl>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
-          >
-            <Typography className={classes.heading}>Salat</Typography>
-          </AccordionSummary>
-          <AccordionDetails className={styles.accordionDetails}>
-            <FormControl size="large" margin="normal" component="fieldset">
-              <FormGroup row>
-                <FormControlLabel
-                  control={
-                    <Checkbox color="primary" checked="cesar" name="cesar" />
-                  }
-                  label="cesar"
-                />
-                <FormControlLabel
-                  control={
-                    <Checkbox color="primary" checked="apple" name="apple" />
-                  }
-                  label="apple"
-                />
-                <FormControlLabel
-                  control={
-                    <Checkbox color="primary" checked="cheese" name="cheese" />
-                  }
-                  label="cheese"
-                />
-              </FormGroup>
-            </FormControl>
-
-            <FormControl
-              size="small"
-              margin="normal"
-              variant="outlined"
-              className={styles.select}
-            >
-              <InputLabel id="demo-simple-select-outlined-label">
-                Amount
-              </InputLabel>
-              <Select
-                labelId="amountCake"
-                id="amountCake"
-                label="Amount of cake"
-              >
-                <MenuItem value={1}>1</MenuItem>
-                <MenuItem value={2}>2</MenuItem>
-                <MenuItem value={3}>3</MenuItem>
-                <MenuItem value={4}>4</MenuItem>
-                <MenuItem value={5}>5</MenuItem>
-                <MenuItem value={6}>6</MenuItem>
-                <MenuItem value={7}>7</MenuItem>
-              </Select>
-            </FormControl>
-          </AccordionDetails>
-        </Accordion>
+      <Grid>
         <Button
           type="submit"
           fullWidth
