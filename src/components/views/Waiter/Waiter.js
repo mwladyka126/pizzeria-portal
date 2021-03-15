@@ -12,6 +12,7 @@ import Button from '@material-ui/core/Button';
 class Waiter extends React.Component {
   static propTypes = {
     fetchTables: PropTypes.func,
+    fetchStatus: PropTypes.func,
     loading: PropTypes.shape({
       active: PropTypes.bool,
       error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
@@ -24,25 +25,46 @@ class Waiter extends React.Component {
     fetchTables();
   }
 
-  renderActions(status) {
+  renderActions(status, tableId) {
+    const { fetchStatus } = this.props;
     switch (status) {
       case 'free':
         return (
           <>
-            <Button>thinking</Button>
-            <Button>new order</Button>
+            <Button onClick={() => fetchStatus('thinking', tableId)}>
+              thinking
+            </Button>
+            <Button onClick={() => fetchStatus('new order', tableId)}>
+              new order
+            </Button>
           </>
         );
       case 'thinking':
-        return <Button>new order</Button>;
+        return (
+          <Button onClick={() => fetchStatus('new order', tableId)}>
+            new order
+          </Button>
+        );
       case 'ordered':
-        return <Button>prepared</Button>;
+        return (
+          <Button onClick={() => fetchStatus('prepared', tableId)}>
+            prepared
+          </Button>
+        );
       case 'prepared':
-        return <Button>delivered</Button>;
+        return (
+          <Button onClick={() => fetchStatus('delivered', tableId)}>
+            delivered
+          </Button>
+        );
       case 'delivered':
-        return <Button>paid</Button>;
+        return (
+          <Button onClick={() => fetchStatus('paid', tableId)}>paid</Button>
+        );
       case 'paid':
-        return <Button>free</Button>;
+        return (
+          <Button onClick={() => fetchStatus('free', tableId)}>free</Button>
+        );
       default:
         return null;
     }
