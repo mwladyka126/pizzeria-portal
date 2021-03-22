@@ -87,7 +87,6 @@ export default function reducer(statePart = [], action = {}) {
           el.id === action.id ? { ...el, status: action.status } : el
         ),
       };
-      console.log(action.status);
     }
     default:
       return statePart;
