@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,UAAU,CAAC;EACT,OAAO,ECHG,IAAI;EDId,UAAU,EAAE,IAAI;CACjB",
+    "sources": [
+        "Kitchen.module.scss",
+        "../../../styles/settings.scss"
+    ],
+    "names": [],
+    "file": "Kitchen.module.css"
+}

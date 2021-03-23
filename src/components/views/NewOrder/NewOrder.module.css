@@ -1,0 +1,14 @@
+.component {
+  padding: 12px;
+  margin-top: 40px;
+}
+
+.accordionDetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+/*# sourceMappingURL=NewOrder.module.css.map */

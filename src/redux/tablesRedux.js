@@ -42,7 +42,7 @@ export const fetchStatusFromAPI = (tableId, status) => {
   return (dispatch, getState) => {
     Axios.put(`${api.url}/api/${api.tables}/${tableId}`, { status })
       .then((res) => {
-        dispatch(fetchTableStatus(res.data.id, res.data.status));
+        dispatch(fetchTableStatus(res.data));
       })
       .catch((err) => {
         dispatch(fetchError(err.message || true));
@@ -84,7 +84,9 @@ export default function reducer(statePart = [], action = {}) {
       return {
         ...statePart,
         data: statePart.data.map((el) =>
-          el.id === action.id ? { ...el, status: action.status } : el
+          el.id === action.payload.id
+            ? { ...el, status: action.payload.status }
+            : el
         ),
       };
     }

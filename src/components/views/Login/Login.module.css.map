@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,UAAU,CAAC;EACT,OAAO,ECHG,IAAI;EDId,UAAU,EAAE,IAAI;CACjB;;AACD,AAAA,MAAM,CAAC;EAEL,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,WAAW,EAAE,MAAM;CACpB;;AAKD,AAAA,KAAK,CAAC;EACJ,KAAK,EAAE,MAAM;CAEd;;AACD,AAAA,OAAO,CAAC;EACN,KAAK,EAAE,KAAK;CACb",
+    "sources": [
+        "Login.module.scss",
+        "../../../styles/settings.scss"
+    ],
+    "names": [],
+    "file": "Login.module.css"
+}

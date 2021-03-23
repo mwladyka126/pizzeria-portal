@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,UAAU,CAAC;EACT,OAAO,ECHG,IAAI;EDId,MAAM,ECJI,IAAI;CDKf",
+    "sources": [
+        "Waiter.module.scss",
+        "../../../styles/settings.scss"
+    ],
+    "names": [],
+    "file": "Waiter.module.css"
+}

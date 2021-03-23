@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,UAAU,CAAC;EACT,OAAO,ECHG,IAAI,CDGM,CAAC;EACrB,WAAW,EAAE,IAAI;CAClB;;AACD,AAAA,KAAK,CAAC;EACJ,KAAK,EAAE,OAAO;CACf",
+    "sources": [
+        "PageNav.module.scss",
+        "../../../styles/settings.scss"
+    ],
+    "names": [],
+    "file": "PageNav.module.css"
+}

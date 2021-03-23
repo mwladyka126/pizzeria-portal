@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,UAAU,CAAC;EACT,OAAO,ECHG,IAAI;CDIf",
+    "sources": [
+        "NewEvent.module.scss",
+        "../../../styles/settings.scss"
+    ],
+    "names": [],
+    "file": "NewEvent.module.css"
+}

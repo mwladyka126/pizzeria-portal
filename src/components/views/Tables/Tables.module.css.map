@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,UAAU,CAAC;EACT,OAAO,ECHG,IAAI;EDId,MAAM,EAAE,IAAI;CACb;;AACD,AAAA,OAAO,CAAC;EACN,KAAK,EAAE,OAAiB;CACzB",
+    "sources": [
+        "Tables.module.scss",
+        "../../../styles/settings.scss"
+    ],
+    "names": [],
+    "file": "Tables.module.css"
+}
