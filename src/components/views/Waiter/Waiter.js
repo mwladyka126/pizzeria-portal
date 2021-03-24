@@ -77,7 +77,6 @@ class Waiter extends React.Component {
     } = this.props;
 
     if (active || !tables.length) {
-      console.log(tables);
       return (
         <Paper className={styles.component}>
           <p>Loading...</p>
