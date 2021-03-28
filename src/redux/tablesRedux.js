@@ -42,7 +42,9 @@ export const fetchStatusFromAPI = (tableId, status) => {
   return (dispatch, getState) => {
     Axios.put(`${api.url}/api/${api.tables}/${tableId}`, { status })
       .then((res) => {
-        dispatch(fetchTableStatus(res.data.id, res.data.status));
+        dispatch(
+          fetchTableStatus({ id: res.data.id, status: res.data.status })
+        );
       })
       .catch((err) => {
         dispatch(fetchError(err.message || true));
